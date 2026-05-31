@@ -14,7 +14,7 @@ class cmark_mem(Structure):
 def pipe_through_prog(prog, text):
     p1 = Popen(prog.split(), stdout=PIPE, stdin=PIPE, stderr=PIPE)
     [result, err] = p1.communicate(input=text.encode('utf-8'))
-    return [p1.returncode, result, err]
+    return [p1.returncode, result.decode('utf-8'), err]
 
 def to_html(lib, text):
     get_alloc = lib.cmark_get_default_mem_allocator

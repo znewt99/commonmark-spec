@@ -55,7 +55,7 @@ def do_test(converter, test, normalize, prev_result):
     expected_html = test['html']
 
     try:
-        actual_html = actual_html_bytes.decode('utf-8')
+        actual_html = actual_html_bytes
     except UnicodeDecodeError as e:
         if prev_result != 'fail':
             print_test_header(test)
